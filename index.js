@@ -34,10 +34,12 @@ function createTimeOutEvent(employeeRecord, dateTimeString) {
     return employeeRecord;
 }
 
+
 function hoursWorkedOnDate(employeeRecord, date) {
+    validateTimeEntries(employeeRecord, date);
     const timeIn = employeeRecord.timeInEvents.find(event => event.date === date);
     const timeOut = employeeRecord.timeOutEvents.find(event => event.date === date);
-    return (timeOut.hour - timeIn.hour) / 100; 
+    return (timeOut.hour - timeIn.hour) / 100;
 }
 
 function wagesEarnedOnDate(employeeRecord, date) {
